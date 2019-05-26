@@ -1,0 +1,25 @@
+.jumbotron{
+    background: url("../images/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.font-style{
+    font-family:Brush Script Std;
+    color: rgb(148, 236, 182);
+    margin-top: 200px;
+}
+.btn-font{
+    font-family: Century gothic;
+    color: rgb(148, 236, 182);
+    font-size: 20px;
+    margin-top: -700px;
+}
+.font-tag{
+    font-family: Century gothic;
+    color:beige;
+}
+.style1{
+    border-top: 3px solid beige;
+    width: 500px;
+}
+

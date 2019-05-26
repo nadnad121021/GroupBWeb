@@ -1,0 +1,41 @@
+<html lang="en">
+    <head>
+        <title>Cebutiful</title>
+        <!-- <link rel = "shortcut icon" href = "../images/pn-logo.png"> -->
+        <link rel="stylesheet" type="text/css" href="/assets/styles/signup.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        <!--  <script type="text/javascript" src="../javascripts/database.js"></script> -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+<body>
+  <div class="container">
+    <div class="col-md-12">
+    <div id="logbox">
+      <form id="signup" method="post" action="/signup">
+        <h1 style="color: white"> create an account</h1>
+        <!-- <input name="user[name]" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/> -->
+        <input name="lastname" id="lastname" type="text" placeholder="What's your Lastname?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
+        <input name="firstname" id="firstname" type="text" placeholder="What's your Firstname?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
+        <input name="password" id="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+        <input name="password2" id="password2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+        <input name="email" id="email" type="email" placeholder="Email address" class="input pass"/>
+        <input style="display: none" type="submit" id="Signup" value="Sign me up!"/>
+        <input type="button" value="Sign me up!" id="ButSign" class="inputButton">
+        <div class="text-center" style="color: khaki">
+            already have an account? <a href="/login" style="color: lightcoral" id="login_id">login</a>
+        </div>
+      </form>
+    </div>
+   </div>
+  </div>
+  <script src="/controller/signupController.js"></script>
+</body>
+  </html>

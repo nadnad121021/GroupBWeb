@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+	<title>Cebutiful</title>
+    <!-- <link rel = "shortcut icon" href = "../images/pn-logo.png"> -->
+	<link rel="stylesheet" type="text/css" href="/assets/styles/login.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <!--  <script type="text/javascript" src="../javascripts/database.js"></script> -->
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+   <div class="box" id = "Login-Div">
+     <h2>Login</h2>
+     <form class="LoginForm" method="POST">
+        <div class="inputBox">
+            <input type="text" name="userName" required="" id="UserName">
+            <label>Username</label>
+        </div>
+
+        <div class="inputBox">
+            <input type="password" name="password" required="" id="UserPassword">
+            <label>Password</label>
+        </div>
+        <input type="submit"  name="" id="Submit" class="Submit" style="display: none" >
+        <input type="button" name="" id="Log" value="Login">
+        <input type="button" class="btn btn-warning" name="" id="Cancel" value="Cancel">
+        <!-- <a href="#"><input type="button"  name="" value="SignUp" id ="SignUp"></a> -->
+     </form>
+     </div>
+     <script type="text/javascript" src="/controller/loginController.js"></script>
+</body>
+</html>
