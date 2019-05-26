@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+var session = require('express-session');
 
 // Connection to mongodb
 var mongoUtil = require( './public/assets/scripts/mongodb' );
@@ -9,6 +10,14 @@ var mongoUtil = require( './public/assets/scripts/mongodb' );
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+
+app.use(session({
+    secret:'this my sample session',
+    username:"asd",
+    isLogin:false,
+    resave:true,
+    saveUninitialized:true
+}));
 
 // Routes
 const login = require('./routes/loginRoute/index.js');

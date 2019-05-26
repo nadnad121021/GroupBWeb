@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/assets/styles/family.css" type="text/css">
+    </head>
+
+<body class="jumbotron">
+    <nav>
+        <div class="container-fluid">
+            <a href="/signup"><button class="btn btn-font btn-outline-info border-info">Sign up</button></a>
+            <a href="/login"><button class="btn btn-font btn-outline-info border-info">Log in</button></a>
+            <a href="/changePass"><button class="btn btn-font btn-outline-info border-info">Change Password</button></a>
+            <a href="/home"><button class="btn btn-font btn-outline-info">Home</button></a>
+            <a href="/family"><button class="btn btn-font btn-outline-info active">Family</button></a>
+            <a href="/adventure"><button class="btn btn-font btn-outline-info">Adventure</button></a>
+            <a href="/romantic"><button class="btn btn-font btn-outline-info">Romantic</button></a>
+        </div>
+    </nav>
+    <hr>
+    <br><br>
+    <div class="container-fluid">
+        <div>
+            <img class="img-thumbnail float-right" src="/assets/images/Family/Simala1.jpg">
+            <img class="img-thumbnail float-left" src="/assets/images/Family/lapulapu.jpg">
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid">
+        <label style="color: white" for="comments">Comments</label>
+        <ul class="list-group" id="comments">
+                <% Comments.forEach(function(item){%>
+                    <li class="list-group-item list-group-item-success col-md-8"><%= item.Description %></li>
+                <%}) %>
+        </ul>
+        <div class="form-group">
+            <form>
+                <label for="post">Say something</label>
+                <input class="form-control form-control-lg" name="comment" type="text" id="post" placeholder="Enter your comment here" required>
+                <br>
+                <input type="submit" id="btnsubmit" class="btn btn-primary" value="Post">
+            </form>
+        </div>
+    </div>
+    
+</body>
+<script>
+    $(document).ready(function(){
+        $("#btnsubmit").click(function(){
+            var today = new Date();
+            var d = today.getDate();
+            var m = today.getMonth() +1;
+            var yr = today.getFullYear();
+            var comment = {
+                Description:$('#post').val(),
+                Date:m+"/"+d+"/"+yr
+            }
+            $.ajax({
+                method:'POST',
+                url:'/postComment',
+                data:comment,
+                success:function(message){
+                   if(message == "false"){
+                        alert("Please log in first");
+                        top.location.href = "/login"
+                   }
+                }
+            })
+        });
+    });
+
+    
+</script>
+</html>

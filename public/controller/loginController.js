@@ -5,7 +5,8 @@ $(document).ready(function(){
     $Submit = $('#Submit');
     $UserName = $('#UserName');
     $UserPassword = $('#UserPassword');
-    $log.click(function(){
+    $log.click(function(e){
+        
         if($UserName.val().length > 0 && $UserPassword.val().length > 0 ){
             var user = {
                 Username:$UserName.val(),
@@ -17,8 +18,8 @@ $(document).ready(function(){
                 data:user,
                 success:function(message){
                     switch(message){
-                        case "Admin": top.location.href = "/adminDashboard";break;
-                        case "Client": top.location.href = "/clientDashboard";break;
+                        case "Admin": top.location.href = "/adminhome";break;
+                        case "Client": top.location.href = "/family";break;
                         case "Invalid Credentials":caller(message);break;
                         default:break;
                     }

@@ -1,3 +1,6 @@
+body img{
+    width: 50%;
+}
 .jumbotron{
     background: url("../images/bg.jpg");
     background-size: cover;

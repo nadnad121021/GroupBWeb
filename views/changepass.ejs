@@ -1,0 +1,67 @@
+<html lang="en">
+    <head>
+        <title>Cebutiful</title>
+        <!-- <link rel = "shortcut icon" href = "../images/pn-logo.png"> -->
+        <link rel="stylesheet" type="text/css" href="/assets/styles/signup.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        <!--  <script type="text/javascript" src="../javascripts/database.js"></script> -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+<body>
+  <div class="container">
+    <div class="col-md-12">
+    <div id="logbox">
+      <form id="signup" method="post" action="/signup">
+        <h1 style="color: white"> Change password doooo!!!</h1>
+        <!-- <input name="user[name]" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/> -->
+        <input name="password" id="password" type="password" placeholder="New password" required="required" class="input pass"/>
+        <input name="password2" id="password2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+        
+        <input style="display: none" type="submit" id="change" value="Change me up!"/>
+        <input type="button" value="Submit" id="changePass" class="inputButton">
+      </form>
+      <input type="text" id="username" value="<%=User%>" style="display: none">
+    </div>
+   </div>
+  </div>
+  <script>
+      $(document).ready(function(){
+          var password = $('#password')
+          var password2 = $('#password2')
+          
+        $("#changePass").click(function(){
+            if(password.val().length > 0 && password2.val().length > 0){
+                if(password.val() == password2.val()){
+                    $.ajax({
+                        method:"POST",
+                        url:'/changePass',
+                        data: {
+                            NewPassWord: password.val(),
+                            Username: $("#username").val()
+                        },
+                        success : function(message){
+                            alert(message);
+                            top.location.href = "/login";
+                        }
+                    });
+                }else{
+                    alert("Password does not match");
+                }
+                
+            }else{
+                $("#change").click();
+                
+            }
+        });
+      })
+  </script>
+</body>
+  </html>
